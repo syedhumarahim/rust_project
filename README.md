@@ -146,21 +146,20 @@ You can run the following SQL queries to interact with the `medical_records` tab
 
 To maintain code quality and streamline development, I have set up a CI/CD pipeline using GitHub Actions. Here's how it enhances the project:
 
-- **Automated Testing**:
-  - Every push triggers tests using **pytest**, ensuring new changes don't break existing functionality.
+### Automated Testing
+Every push triggers tests using `cargo test`, ensuring new changes don't break existing functionality.
 
-- **Code Formatting and Linting**:
-  - **Python Black** formats the code consistently.
-  - **Ruff** lints the code to catch errors and enforce coding standards.
+### Code Formatting and Linting
+`cargo fmt` formats the code consistently.  
+`cargo clippy` lints the code to catch errors and enforce coding standards.
 
-- **Dependency Management**:
-  - Dependencies are installed via a pinned `requirements.txt` to ensure consistent environments across different setups.
+### Dependency Management
+Dependencies are managed via the `Cargo.toml` file, ensuring a consistent and reproducible build environment.
 
-- **Continuous Integration Badges**:
-  - The README includes badges that display the status of the pipeline steps, providing immediate feedback on the codebase's health.
+### Continuous Integration Badges
+The README includes badges that display the status of the pipeline steps, providing immediate feedback on the codebase's health.
 
 This automated workflow not only saves time but also ensures that the project remains robust, maintainable, and scalable.
-
 
 ## Youtube Video
 
