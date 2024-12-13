@@ -142,7 +142,7 @@ You can run the following SQL queries to interact with the `medical_records` tab
 
 # CI/CD Pipeline with GitHub Actions
 
-![CI-CD Pipeline](gif_sql.gif)
+![CI-CD Pipeline](rust_cligif.gif)
 
 To maintain code quality and streamline development, I have set up a CI/CD pipeline using GitHub Actions. Here's how it enhances the project:
 
