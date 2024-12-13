@@ -1,4 +1,4 @@
-[![Python 3.11](https://github.com/nogibjj/sqllite/actions/workflows/main.yml/badge.svg)](https://github.com/nogibjj/sqllite/actions/workflows/main.yml)
+[![Rust CI/CD Pipeline](https://github.com/syedhumarahim/rust_project/actions/workflows/main.yml/badge.svg)](https://github.com/syedhumarahim/rust_project/actions/workflows/main.yml)
 
 # Rust CLI Binary with SQLite
 
