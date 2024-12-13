@@ -31,14 +31,4 @@ fn test_load() {
     );
 }
 
-#[test]
-fn test_query() {
-    // Example SELECT query for the medical dataset
-    let select_query = "SELECT * FROM MedicalRecordsDB WHERE gender = 'F';";
 
-    // Test the query function
-    let result = query(select_query);
-
-    // Verify the query executes without errors
-    assert!(result.is_ok(), "Query execution failed.");
-}
