@@ -1,67 +1,95 @@
 [![Python 3.11](https://github.com/nogibjj/sqllite/actions/workflows/main.yml/badge.svg)](https://github.com/nogibjj/sqllite/actions/workflows/main.yml)
 
-# Interacting with SQL Database using Python Script
+# Rust CLI Binary with SQLite
 
-This is the sixth Assignment for Data Engineering on Interacting with SQL Database.
+This is the Assignment for Data Engineering on building a rust based CLI interacting with a SQL Database.
 
-# Medical Records CRUD Operations with SQLite
+# Overview 
 
-This project demonstrates how to perform basic CRUD (Create, Read, Update, Delete) operations on a SQLite database using a Python application. The dataset used contains medical records with fields such as patient ID, name, date of birth, gender, medical conditions, medications, allergies, and last appointment date.
+This project demonstrates a Rust-based command-line interface (CLI) application integrated with an SQLite database. It perform basic CRUD (Create, Read, Update, Delete) operations on a SQLite database using a Python application. The dataset used contains medical records with fields such as patient ID, name, date of birth, gender, medical conditions, medications, allergies, and last appointment date. Additionally, this project showcases an optimized Rust binary generated through GitLab CI, with automated testing, building, and linting processes. Throughout the development, a Large Language Model (LLM) was utilized to enhance coding efficiency and support Rust's syntax understanding.
 
-## Project Structure
-
-```
-├── .devcontainer/            # DevContainer setup files
-├── .github/                  # GitHub Actions CI/CD workflows
-├── data/                     # Contains the CSV data files used to load into the SQLite database
-│   └── medical_records.csv    # Medical records CSV file
-├── helper/                   # Helper scripts (like utility functions to perform SQL operations)
-├── CRUD_functions.py          # CRUD operations for database
-├── .gitignore                # Git ignore file
-├── Makefile                  # Makefile to automate setup, linting, formatting, and testing
-├── README.md                 # Project documentation
-├── main.py                   # Main Python file that contains the CRUD operations
-├── medical_records_DB.db      # The SQLite database file
-├── requirements.txt          # Python package dependencies
-├── test_main.py              # Unit tests for the CRUD operations
-```
-
-
-## Features
-
-- **CRUD Operations**: Create, Read, Update, and Delete medical records in the SQLite database.
-- **SQLite Integration**: Uses SQLite as the database engine to store and manage medical records.
-- **CI/CD Pipeline**: Includes a GitHub Actions CI/CD workflow for testing and validating the code.
-- **Database Loading**: The project includes functionality to load medical records from a CSV file into the database.
-
-
-## Setup and Installation
-
-### 1. Clone the Repository
+# Structure
 
 ```
-git clone https://github.com/your-username/medical-records-crud.git
-cd medical-records-crud
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .github/
+│   └── workflows/main.yml
+├── .gitignore
+├── data/
+│   └── medical_records.csv
+├── Makefile
+├── src/
+│   ├── lib.rs
+│   ├── main.rs
+├── Cargo.toml
+├── README.md
+└── medical_records_DB.db
 ```
 
-### 2. Install Dependencies
-Install the required Python packages using pip:
+## 2. **CRUD Operations**
+We demonstrate the following CRUD operations:
+- **Create:** Insert new records into a table.
+- **Read:** Query and retrieve records from the table.
+- **Update:** Modify existing records within the table.
+- **Delete:** Remove records from the table.
 
+### Set up and Running Rust
+
+#### First, compile the Rust project by running:
 ```
-make install
-```
-
-This will:
-Upgrade pip and install all dependencies listed in requirements.txt.
-
-### 3. Load the SQLite Database
-
-To load the medical records from the data/medical_records.csv into the SQLite database, run:
-```
-make load_db
+cargo build
 ```
 
-This will create and populate the medical_records_DB.db file.
+#### Now we can Run the project by:
+- Extract Data: To run the data extraction process, execute:
+```
+cargo run extract
+```
+- Load Data: To load the extracted data into the SQLite database, run:
+```
+cargo run load
+```
+Query Data: To query the data, use the following command. Replace [query] with your SQL query:
+```
+cargo run query "[query]"
+```
+These commands will allow you to extract, load, and query data within the SQLite database using the CLI.
+
+
+## Use of LLMs
+
+LLMs like GitHub Copilot were instrumental in understanding Rust syntax and best practices, as well as generating boilerplate code efficiently. They also provided valuable suggestions for writing documentation, resolving errors and debugging issues encountered during development. This improved both the coding speed and the quality of the project.
+
+The following was writen using LLM:
+
+Dependencies and Installation:
+The project depends on reqwest, rusqlite, and csv crates. Install them using cargo by running:
+
+```cargo build```
+
+Project Explanation:
+
+This Rust CLI application performs CRUD operations on a SQLite database using a sample dataset. It showcases data extraction, loading, and query execution, enabling users to interact with the database via command-line arguments.
+
+How to Run the Program:
+
+Build the project:
+
+```cargo build```
+
+Execute actions like extract, load, and query using:
+
+```cargo run <action> [optional SQL query]```
+
+Example:
+
+```
+cargo run extract  
+cargo run load  
+cargo run query "SELECT * FROM PatientData;
+```
 
 ## Database Table: `medical_records`
 
@@ -133,4 +161,8 @@ To maintain code quality and streamline development, I have set up a CI/CD pipel
 
 This automated workflow not only saves time but also ensures that the project remains robust, maintainable, and scalable.
 
+
+## Youtube Video
+
+[click here]()
 
