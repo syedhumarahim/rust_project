@@ -37,4 +37,9 @@ jobs:
       run: make read  
     - name: Delete 
       run: make delete
+    - name: Upload Binary Artifact
+      uses: actions/upload-artifact@v4 #v3 is scheduled for deprecation Nov 30 2024 check marketplace
+      with:
+        name: release-binary
+        path: ${{ env.WORKING_DIR }}/target/release/sqlite
       
